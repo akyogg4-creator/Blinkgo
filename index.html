@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLINKO — You Blinked. You Missed It.</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#09090b;color:#f5f5f5;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:10;background:rgba(9,9,11,.88);backdrop-filter:blur(12px);border-bottom:1px solid #242428;padding:16px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:25px;letter-spacing:-1px}.logo span{color:#b8ff3d}
+nav a{color:#ddd;text-decoration:none;margin-left:20px;font-weight:700;font-size:14px}
+.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;position:relative}
+.hero:before{content:"";position:absolute;width:330px;height:330px;background:#b8ff3d;border-radius:50%;filter:blur(110px);opacity:.18}
+.badge{display:inline-block;border:1px solid #3a3a40;border-radius:99px;padding:8px 14px;color:#b8ff3d;font-size:13px;font-weight:800}
+h1{font-size:clamp(55px,12vw,130px);line-height:.85;margin:25px 0 18px;letter-spacing:-7px;position:relative}
+h1 span{color:#b8ff3d}.hero p{font-size:20px;color:#a8a8ad;max-width:650px;margin:auto;line-height:1.5}
+.buttons{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:15px 23px;border-radius:12px;text-decoration:none;font-weight:900;border:1px solid #3a3a40;color:white}
+.primary{background:#b8ff3d;color:#09090b;border-color:#b8ff3d}
+section{padding:80px 7%;max-width:1100px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:#111115;border:1px solid #27272c;border-radius:20px;padding:25px}
+.card h3{margin-top:0;color:#b8ff3d}
+.big{font-size:45px;font-weight:900;margin:8px 0}
+h2{font-size:44px;letter-spacing:-2px;margin-top:0}
+.meme{font-size:70px;text-align:center;padding:35px 10px}
+.road{border-left:2px solid #b8ff3d;padding-left:22px}
+.road div{margin:25px 0}.road b{color:#b8ff3d}
+footer{text-align:center;border-top:1px solid #242428;padding:35px;color:#777}
+.disclaimer{font-size:12px;color:#666;max-width:700px;margin:15px auto;line-height:1.5}
+@media(max-width:600px){nav a{display:none}h1{letter-spacing:-4px}h2{font-size:34px}.hero p{font-size:17px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">BLINK<span>O</span></div>
+  <div><a href="#about">About</a><a href="#tokenomics">Tokenomics</a><a href="#roadmap">Roadmap</a><a href="#community">Community</a></div>
+</nav>
+
+<header class="hero">
+<div>
+  <div class="badge">THE MEME COIN THAT MOVES FAST 👀</div>
+  <h1>DON'T<br><span>BLINK.</span></h1>
+  <p>You blinked. You looked away. You missed it. BLINKO is a community meme project built for fun, memes and internet chaos.</p>
+  <div class="buttons">
+    <a class="btn primary" href="#community">JOIN THE CHAOS</a>
+    <a class="btn" href="#about">WHAT IS BLINKO?</a>
+  </div>
+</div>
+</header>
+
+<section id="about">
+<h2>What is BLINKO?</h2>
+<div class="grid">
+<div class="card"><div class="meme">👀</div><h3>One Rule</h3><p>Don't blink. Because the internet moves faster than your attention span.</p></div>
+<div class="card"><div class="meme">⚡</div><h3>Pure Meme Energy</h3><p>No complicated lore. Just a recognizable character, a simple joke and a community.</p></div>
+<div class="card"><div class="meme">🚀</div><h3>Community First</h3><p>Built around memes, creativity and participation—not promises of profit.</p></div>
+</div>
+</section>
+
+<section id="tokenomics">
+<h2>Tokenomics</h2>
+<div class="grid">
+<div class="card"><h3>Token</h3><div class="big">BLINKO</div><p>Ticker: $BLINKO</p></div>
+<div class="card"><h3>Supply</h3><div class="big">1B</div><p>Example supply — replace before launch.</p></div>
+<div class="card"><h3>Contract</h3><div class="big">TBA</div><p>Add the verified contract address after deployment.</p></div>
+</div>
+</section>
+
+<section id="roadmap">
+<h2>Roadmap</h2>
+<div class="road">
+<div><b>PHASE 01 — WAKE UP</b><p>Launch the website, memes and social community.</p></div>
+<div><b>PHASE 02 — DON'T BLINK</b><p>Community meme contests, creator collaborations and consistent content.</p></div>
+<div><b>PHASE 03 — BLINKO EVERYWHERE</b><p>Explore community-driven listings, partnerships and bigger creative campaigns.</p></div>
+</div>
+</section>
+
+<section id="community">
+<h2>Join the community</h2>
+<div class="grid">
+<a class="card btn" href="https://x.com/" target="_blank">𝕏 — X / TWITTER</a>
+<a class="card btn" href="https://t.me/" target="_blank">✈ — TELEGRAM</a>
+<a class="card btn" href="https://discord.com/" target="_blank">◉ — DISCORD</a>
+</div>
+<p class="disclaimer">BLINKO is presented as a meme/community project. Nothing on this website is financial advice or a promise of returns. Replace placeholder links, token supply and contract information with verified details before publishing.</p>
+</section>
+
+<footer>© 2026 BLINKO — YOU BLINKED. YOU MISSED IT. 👀</footer>
+</body>
+</html>
