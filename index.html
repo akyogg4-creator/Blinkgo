@@ -1,92 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLINKO — You Blinked. You Missed It.</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08090b">
+<meta name="description" content="BLINKO — Don't blink.">
+<title>BLINKO — Don't Blink</title>
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#09090b;color:#f5f5f5;overflow-x:hidden}
-nav{position:sticky;top:0;z-index:10;background:rgba(9,9,11,.88);backdrop-filter:blur(12px);border-bottom:1px solid #242428;padding:16px 6%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;font-size:25px;letter-spacing:-1px}.logo span{color:#b8ff3d}
-nav a{color:#ddd;text-decoration:none;margin-left:20px;font-weight:700;font-size:14px}
-.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;position:relative}
-.hero:before{content:"";position:absolute;width:330px;height:330px;background:#b8ff3d;border-radius:50%;filter:blur(110px);opacity:.18}
-.badge{display:inline-block;border:1px solid #3a3a40;border-radius:99px;padding:8px 14px;color:#b8ff3d;font-size:13px;font-weight:800}
-h1{font-size:clamp(55px,12vw,130px);line-height:.85;margin:25px 0 18px;letter-spacing:-7px;position:relative}
-h1 span{color:#b8ff3d}.hero p{font-size:20px;color:#a8a8ad;max-width:650px;margin:auto;line-height:1.5}
-.buttons{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{padding:15px 23px;border-radius:12px;text-decoration:none;font-weight:900;border:1px solid #3a3a40;color:white}
-.primary{background:#b8ff3d;color:#09090b;border-color:#b8ff3d}
-section{padding:80px 7%;max-width:1100px;margin:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.card{background:#111115;border:1px solid #27272c;border-radius:20px;padding:25px}
-.card h3{margin-top:0;color:#b8ff3d}
-.big{font-size:45px;font-weight:900;margin:8px 0}
-h2{font-size:44px;letter-spacing:-2px;margin-top:0}
-.meme{font-size:70px;text-align:center;padding:35px 10px}
-.road{border-left:2px solid #b8ff3d;padding-left:22px}
-.road div{margin:25px 0}.road b{color:#b8ff3d}
-footer{text-align:center;border-top:1px solid #242428;padding:35px;color:#777}
-.disclaimer{font-size:12px;color:#666;max-width:700px;margin:15px auto;line-height:1.5}
-@media(max-width:600px){nav a{display:none}h1{letter-spacing:-4px}h2{font-size:34px}.hero p{font-size:17px}}
+:root{--bg:#07080a;--panel:#101216;--panel2:#15181d;--text:#f8f8f4;--muted:#9297a1;--lime:#c8ff38;--line:#282c33;--red:#ff5964}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}.nav{position:sticky;top:0;z-index:100;background:#07080ae8;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+.navin{height:70px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:26px;font-weight:1000;letter-spacing:-1.5px}.logo span{color:var(--lime)}
+.navlinks{display:flex;gap:24px;font-size:14px;font-weight:850}.navlinks a:hover{color:var(--lime)}.hamb{display:none;background:none;border:0;color:white;font-size:27px}
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);border-top:1px solid var(--line);background:#0b0d10}.ticker-track{display:inline-block;animation:scroll 22s linear infinite;padding:10px 0;font-size:12px;font-weight:900;letter-spacing:1px}.ticker-track span{margin:0 28px;color:var(--lime)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero{min-height:calc(100vh - 105px);display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:35px;position:relative}.hero:before{content:"";position:absolute;width:480px;height:480px;background:var(--lime);filter:blur(170px);opacity:.09;right:-170px;top:40px;pointer-events:none}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid #3b4048;border-radius:99px;padding:8px 13px;color:var(--lime);font-size:12px;font-weight:900;text-transform:uppercase}.live{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 14px var(--lime);animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3;transform:scale(.75)}}
+h1{font-size:clamp(62px,10vw,126px);line-height:.82;letter-spacing:-7px;margin:23px 0}h1 span{color:var(--lime)}.hero p{font-size:19px;color:var(--muted);max-width:650px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid #3c414a;border-radius:12px;font-weight:950}.primary{background:var(--lime);color:#07080a;border-color:var(--lime)}
+.mascot{width:min(390px,82vw);aspect-ratio:1;margin:auto;border-radius:34% 34% 42% 42%;background:var(--lime);position:relative;box-shadow:0 0 0 14px #11140d,0 0 100px #c8ff3820;animation:float 3s ease-in-out infinite;transform:rotate(-3deg)}
+@keyframes float{50%{transform:rotate(3deg) translateY(-12px)}}
+.eye{position:absolute;top:27%;width:22%;height:29%;background:#090a0b;border-radius:50%}.eye.l{left:20%}.eye.r{right:20%}.pupil{width:40%;height:40%;background:#fff;border-radius:50%;position:absolute;top:17%;left:18%}.eye.r .pupil{left:auto;right:18%}.mouth{position:absolute;left:31%;bottom:20%;width:38%;height:15%;background:#090a0b;border-radius:0 0 60px 60px}.drop{position:absolute;right:7%;top:8%;font-size:54px;animation:drop 1.8s infinite}@keyframes drop{50%{transform:translateY(10px) rotate(8deg)}}
+section{padding:90px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}h2{font-size:45px;line-height:1;letter-spacing:-2.5px;margin:0}.lead{color:var(--muted);max-width:620px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:25px}.card h3{margin:0 0 8px;color:var(--lime);font-size:20px}.card p{color:var(--muted);margin:0}.icon{font-size:42px;margin-bottom:14px}
+.market{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.pricecard{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}.price{font-size:48px;font-weight:1000;letter-spacing:-2px}.change{color:var(--lime);font-weight:900}.chart{height:130px;margin-top:20px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}.chart svg{width:100%;height:100%}.mini{display:grid;grid-template-columns:1fr 1fr;gap:12px}.metric{background:var(--panel2);border:1px solid var(--line);border-radius:15px;padding:17px}.metric small{color:var(--muted);font-weight:800}.metric strong{display:block;font-size:22px;margin-top:4px}
+.tokenbox{display:grid;grid-template-columns:1fr 1fr;gap:16px}.contract{word-break:break-all;color:var(--lime);font-family:monospace;font-size:13px}.copy{margin-top:12px;background:var(--panel2);color:white;border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-weight:800;cursor:pointer}
+.road{border-left:2px solid var(--lime);padding-left:28px}.phase{position:relative;padding:2px 0 28px}.phase:before{content:"";position:absolute;left:-37px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--lime)}.phase b{color:var(--lime);font-size:12px}.phase h3{margin:6px 0}.phase p{color:var(--muted);margin:0}
+.cta{background:var(--lime);color:#08090b;border-radius:28px;padding:55px 30px;text-align:center}.cta h2{font-size:52px}.cta p{color:#30351f;max-width:650px;margin:15px auto 25px}.cta .btn{background:#08090b;color:#fff;border-color:#08090b}.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:35px 0;color:#6e737c;font-size:13px}.disclaimer{font-size:11px;color:#555b63;max-width:760px;margin:12px auto;text-align:center}
+@media(max-width:800px){.navlinks{display:none}.hamb{display:block}.hero{grid-template-columns:1fr;text-align:center;padding:55px 0 75px}.hero p{margin:auto}.buttons{justify-content:center}.mascot{width:270px;grid-row:1}.hero>div:first-child{grid-row:2}.cards{grid-template-columns:1fr}.market,.tokenbox{grid-template-columns:1fr}.mini{grid-template-columns:1fr 1fr}.head{display:block}h1{letter-spacing:-4px}h2{font-size:38px}}
 </style>
 </head>
 <body>
-<nav>
-  <div class="logo">BLINK<span>O</span></div>
-  <div><a href="#about">About</a><a href="#tokenomics">Tokenomics</a><a href="#roadmap">Roadmap</a><a href="#community">Community</a></div>
-</nav>
+<nav class="nav"><div class="container navin"><a class="logo" href="#">BLINK<span>O</span></a><div class="navlinks"><a href="#about">About</a><a href="#market">Market</a><a href="#tokenomics">Tokenomics</a><a href="#roadmap">Roadmap</a><a href="#community">Community</a></div><button class="hamb" onclick="toggleMenu()">☰</button></div></nav>
 
-<header class="hero">
-<div>
-  <div class="badge">THE MEME COIN THAT MOVES FAST 👀</div>
-  <h1>DON'T<br><span>BLINK.</span></h1>
-  <p>You blinked. You looked away. You missed it. BLINKO is a community meme project built for fun, memes and internet chaos.</p>
-  <div class="buttons">
-    <a class="btn primary" href="#community">JOIN THE CHAOS</a>
-    <a class="btn" href="#about">WHAT IS BLINKO?</a>
-  </div>
-</div>
+<div class="ticker"><div class="ticker-track">👀 BLINKO <span>DON'T BLINK</span> $BLINKO <span>YOU LOOKED AWAY</span> 👀 BLINKO <span>MEME MODE: ON</span> $BLINKO <span>DON'T BLINK</span> 👀 BLINKO <span>YOU LOOKED AWAY</span> $BLINKO <span>MEME MODE: ON</span></div></div>
+
+<header class="hero container">
+<div><div class="badge"><span class="live"></span>Live from the meme zone</div><h1>DON'T<br><span>BLINK.</span></h1><p>You blinked. You looked away. You missed it. BLINKO is a community meme project built for internet culture, memes and chaos.</p><div class="buttons"><a class="btn primary" href="#community">BUY / JOIN BLINKO</a><a class="btn" href="#market">LIVE STATS</a></div></div>
+<div class="mascot"><div class="eye l"><div class="pupil"></div></div><div class="eye r"><div class="pupil"></div></div><div class="mouth"></div><div class="drop">💧</div></div>
 </header>
 
-<section id="about">
-<h2>What is BLINKO?</h2>
-<div class="grid">
-<div class="card"><div class="meme">👀</div><h3>One Rule</h3><p>Don't blink. Because the internet moves faster than your attention span.</p></div>
-<div class="card"><div class="meme">⚡</div><h3>Pure Meme Energy</h3><p>No complicated lore. Just a recognizable character, a simple joke and a community.</p></div>
-<div class="card"><div class="meme">🚀</div><h3>Community First</h3><p>Built around memes, creativity and participation—not promises of profit.</p></div>
-</div>
-</section>
+<section id="about"><div class="container"><div class="head"><h2>The BLINKO idea</h2><p class="lead">A recognizable character, a one-line joke and a community that keeps the meme moving.</p></div><div class="cards"><div class="card"><div class="icon">👀</div><h3>Instantly memorable</h3><p>One rule makes the whole brand easy to understand: don't blink.</p></div><div class="card"><div class="icon">⚡</div><h3>Built for social</h3><p>Designed around memes, reactions, creator content and community participation.</p></div><div class="card"><div class="icon">🌐</div><h3>Community powered</h3><p>The roadmap is about growing the culture around BLINKO, not making promises about returns.</p></div></div></div></section>
 
-<section id="tokenomics">
-<h2>Tokenomics</h2>
-<div class="grid">
-<div class="card"><h3>Token</h3><div class="big">BLINKO</div><p>Ticker: $BLINKO</p></div>
-<div class="card"><h3>Supply</h3><div class="big">1B</div><p>Example supply — replace before launch.</p></div>
-<div class="card"><h3>Contract</h3><div class="big">TBA</div><p>Add the verified contract address after deployment.</p></div>
-</div>
-</section>
+<section id="market"><div class="container"><div class="head"><h2>Market</h2><p class="lead">Live-data area ready for your real token API. Current values below are placeholders.</p></div><div class="market"><div class="pricecard"><small style="color:var(--muted);font-weight:800">BLINKO PRICE</small><div class="price">$0.000000</div><div class="change">+0.00% 24H</div><div class="chart"><svg viewBox="0 0 800 160" preserveAspectRatio="none"><polyline points="0,135 80,120 150,132 230,85 300,105 380,65 455,90 530,50 610,72 690,35 800,52" fill="none" stroke="#c8ff38" stroke-width="5"/></svg></div></div><div class="mini"><div class="metric"><small>MARKET CAP</small><strong>$0</strong></div><div class="metric"><small>24H VOLUME</small><strong>$0</strong></div><div class="metric"><small>HOLDERS</small><strong>0</strong></div><div class="metric"><small>LIQUIDITY</small><strong>$0</strong></div></div></div></div></section>
 
-<section id="roadmap">
-<h2>Roadmap</h2>
-<div class="road">
-<div><b>PHASE 01 — WAKE UP</b><p>Launch the website, memes and social community.</p></div>
-<div><b>PHASE 02 — DON'T BLINK</b><p>Community meme contests, creator collaborations and consistent content.</p></div>
-<div><b>PHASE 03 — BLINKO EVERYWHERE</b><p>Explore community-driven listings, partnerships and bigger creative campaigns.</p></div>
-</div>
-</section>
+<section id="tokenomics"><div class="container"><div class="head"><h2>Tokenomics</h2><p class="lead">Update these placeholders after your token is deployed and verified.</p></div><div class="cards"><div class="card"><h3>Token</h3><p style="font-size:28px;font-weight:950;color:white">BLINKO</p><p>Ticker: $BLINKO</p></div><div class="card"><h3>Total supply</h3><p style="font-size:28px;font-weight:950;color:white">1,000,000,000</p><p>Example supply</p></div><div class="card"><h3>Network</h3><p style="font-size:28px;font-weight:950;color:white">Solana</p><p>Replace if using another chain.</p></div></div><div class="tokenbox" style="margin-top:16px"><div class="card"><h3>Contract address</h3><div class="contract" id="contract">YOUR_VERIFIED_CONTRACT_ADDRESS</div><button class="copy" onclick="copyContract()">Copy contract</button></div><div class="card"><h3>DEX</h3><p>Add your verified DEX/token page here when ready.</p><div class="buttons" style="margin-top:15px"><a class="btn primary" href="#" onclick="return false">BUY BLINKO</a></div></div></div></div></section>
 
-<section id="community">
-<h2>Join the community</h2>
-<div class="grid">
-<a class="card btn" href="https://x.com/" target="_blank">𝕏 — X / TWITTER</a>
-<a class="card btn" href="https://t.me/" target="_blank">✈ — TELEGRAM</a>
-<a class="card btn" href="https://discord.com/" target="_blank">◉ — DISCORD</a>
-</div>
-<p class="disclaimer">BLINKO is presented as a meme/community project. Nothing on this website is financial advice or a promise of returns. Replace placeholder links, token supply and contract information with verified details before publishing.</p>
-</section>
+<section id="roadmap"><div class="container"><div class="head"><h2>Roadmap</h2><p class="lead">Three simple phases to take the meme from launch to wider internet culture.</p></div><div class="road"><div class="phase"><b>PHASE 01 — WAKE UP</b><h3>Launch</h3><p>Website, socials, character art, community channels and launch content.</p></div><div class="phase"><b>PHASE 02 — DON'T BLINK</b><h3>Grow the meme</h3><p>Meme contests, creator collaborations, community events and regular content.</p></div><div class="phase"><b>PHASE 03 — BLINKO EVERYWHERE</b><h3>Expand</h3><p>Community-led partnerships, creative campaigns and new BLINKO experiences.</p></div></div></div></section>
 
-<footer>© 2026 BLINKO — YOU BLINKED. YOU MISSED IT. 👀</footer>
+<section id="community"><div class="container"><div class="cta"><h2>DON'T BLINK. 👀</h2><p>Follow the community and see what happens next.</p><div class="socials"><a class="btn" href="https://x.com/" target="_blank">𝕏 X / TWITTER</a><a class="btn" href="https://t.me/" target="_blank">✈ TELEGRAM</a><a class="btn" href="https://discord.com/" target="_blank">◉ DISCORD</a></div></div></div></section>
+
+<footer><div class="container" style="text-align:center"><strong>BLINKO</strong> — YOU BLINKED. YOU MISSED IT.<div class="disclaimer">BLINKO is a meme/community project. Nothing on this website is financial advice or a promise of profit. Price, market-cap, holder and liquidity fields are placeholders until connected to verified live data.</div></div></footer>
+
+<script>
+function copyContract(){const t=document.getElementById("contract").innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>alert("Contract copied!"))}else{alert(t)}}
+function toggleMenu(){alert("On mobile, use the section buttons and scroll to navigate.")}
+</script>
 </body>
 </html>
